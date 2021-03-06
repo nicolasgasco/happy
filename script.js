@@ -40,12 +40,7 @@ changeColorTheme();
 
 createUsernameList();
 celebrateUser()
-
-
-
-
-
-
+let chosenUser;
 
 
 
@@ -54,7 +49,7 @@ function celebrateUser() {
     const selectUserForm = document.querySelector("#select-user");
 
     selectUserForm.onchange = function () {
-        let chosenUser = selectUserForm.value;
+        chosenUser = selectUserForm.value;
 
         textInHeader.innerText = `Zorionak ${chosenUser.charAt(0).toUpperCase() + chosenUser.substring(1)}!!!`
         document.querySelector("#header-text").style.display = "flex";
@@ -71,27 +66,73 @@ function celebrateUser() {
         setTimeout( function () {
             document.querySelector("#show-content").innerHTML = ``;
             }
-            , 3000)
+            , 100)
         
-        askIfPresents();
+        showPresents();
+
     }
 }
 
 
-function askIfPresents() {
+function showPresents() {
     const introDiv = document.querySelector("#div-intro");
 
     introDiv.innerHTML =
     `
-    <p>Elige un regalo</p>
-    <select>
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
-    </select>
-
+    <p>Quieres recibir tus regalos?</p>
+    <button id="yes-present">Si</p>
+    <button id="no-present">No</p>
     `
 
+    document.querySelector("#no-present").onclick = (function () {
+        window.alert("Eres una persona horrible :(");
+    })
+    document.querySelector("#yes-present").onclick = (function () {
+        receiveRandomInsult();
+    })
+}
+
+function receiveRandomInsult() {
+    const introDiv = document.querySelector("#div-intro");
+
+    introDiv.innerHTML =
+    `
+    <p>Quieres recibir un insulto?</p>
+    <button id="yes-insult">Si</p>
+    <button id="no-insult">No</p>
+    `
+    document.querySelector("#no-insult").onclick = (function () {
+        window.alert("Eres una persona horrible :(");
+    })
+    document.querySelector("#yes-insult").onclick = (function () {
+        fetch("https://www.foaas.com/operations").then( function(response) {
+            return response.json();
+        }).then( function(data) {
+                for ( let singleInsult of data ) {
+                    if ( singleInsult.url.slice(-11) === ":name/:from" ) {
+                        let randomUser = userNames[Math.floor(Math.random() * userNames.length)]
+
+                        let urlRandomInsult = singleInsult.url.replace(":name", chosenUser).replace(":from", randomUser);
+                        console.log(urlRandomInsult)
+
+                        fetch(`https://www.foaas.com/${urlRandomInsult}`).then( function(response) {
+                            return response.json();
+                        }).then( function(data) {
+                            console.log(data);
+                        })
+
+
+                    }
+                }
+        })
+    
+    })
+
+
+
+}
+
+function fetchRandomInsult() {
 
 }
 
