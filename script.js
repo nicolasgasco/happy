@@ -64,12 +64,12 @@ function celebrateUser() {
 
         document.querySelector("#div-intro").innerHTML = ``;
     
-        document.querySelector("footer").innerHTML += 
+        document.querySelector("body").innerHTML += 
 
             `
             <div id="appearing-gifs">
 
-            <img id="confetti" src="./img/confetti.gif" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; object-fit: fill; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
+            <img id="confetti" src="./img/confetti.gif" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; object-fit: cover; border:none; margin:0; padding:0; overflow:hidden; z-index:99999;">
             </div>
             `
         
@@ -79,7 +79,7 @@ function celebrateUser() {
             document.querySelector("#appearing-gifs").remove();
 
             }
-            , 2000)
+            , 3500)
         
         showPresents();
 
@@ -347,7 +347,7 @@ function createColorList(){
     for ( let colorName of arrayColors ) {
         selectColorForm.innerHTML +=
         `
-        <option value=${colorName}>${colorName.charAt(0).toUpperCase() + colorName.substring(1)}</option>
+        <option style="font-size: 0.8rem" value=${colorName}>${colorName.charAt(0).toUpperCase() + colorName.substring(1)}</option>
         `
     }
 }
