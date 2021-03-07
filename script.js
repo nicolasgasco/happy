@@ -187,6 +187,7 @@ function whatRMCharacterAreYou() {
                 `
                 <h2>${data.name}</h2>
                 <img src=${data.image} alt="Picture of ${data.name}" style="width:90%; border-radius:5px">
+                <small>Dale otra vez a Si, si quieres</small>
                 `
 
                 document.querySelector("#show-content").style.display = "block";
