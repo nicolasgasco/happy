@@ -70,7 +70,6 @@ function celebrateUser() {
             <div id="appearing-gifs">
 
             <img id="confetti" src="./img/confetti.gif" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; object-fit: fill; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
-            <img src="./img/happybd.gif" style="position:fixed; top:10%; left:35%; border:none; margin:0; padding:0; overflow:hidden; z-index:999;">
             </div>
             `
         
@@ -137,9 +136,8 @@ function receiveRandomInsult() {
             
             document.querySelector("#show-content").innerHTML =
             `
-            <q>${data.message}</q>
+            <cite>${data.message}</cite>
             <p>${data.subtitle}</p>
-            <p>${randomInsultToFetch.url}</p>
             <small style="display:block">Dale otra vez a Sí, si quieres.</small>
             `
 
@@ -287,7 +285,7 @@ function changeColorTheme() {
     const mainColorElems = document.querySelectorAll("#main-header, #select-color, footer");
     const mainColorOutline = document.querySelectorAll("button:hover");
 
-    const whiteText = document.querySelectorAll("h1, #color-theme-choice, footer p");
+    const whiteText = document.querySelectorAll("h1, #select-color, footer");
 
 
     const selectColorForm = document.querySelector("#select-color");
@@ -316,7 +314,6 @@ function changeColorTheme() {
             if ( selectColorForm.value.toLowerCase() === "negro" ) {
                 for ( let element of whiteText ) {
                     element.style.color = "white";
-                    // colors[selectColorForm.value.toLowerCase()].lightAccent;
                 }
             } else {
                 for ( let element of whiteText ) {

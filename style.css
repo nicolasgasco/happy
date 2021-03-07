@@ -1,7 +1,7 @@
 * {
-    outline: 2px solid red;
     box-sizing: border-box;
     font-size: 1.1rem;
+    outline:1px solid red;
 }
 
 
@@ -43,7 +43,7 @@ main {
 #header-text {
     visibility: hidden;
     max-width: 90vw;
-    margin: 0.5rem auto;
+    margin: 0 auto;
 
     display: flex;
     justify-content: space-evenly;
@@ -165,7 +165,7 @@ button:hover {
 ======================*/
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', Helvetica, sans-serif;
     text-align: center;
 }
 
@@ -174,18 +174,23 @@ body, button {
 }
 
 
-#happybd-h1, #color-theme-choice, footer p {
-    color: black;
+#happybd-h1, #color-theme-choice, footer {
+    color: #484838;
 }
 
-footer, h1 {
+footer {
     font-weight: bold;
 }
 
 h1 {
-    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.2rem;
 }
 
 footer {
     text-align: end;
+}
+
+small {
+    font-size: 0.8rem;
 }
