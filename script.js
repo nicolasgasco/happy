@@ -1,4 +1,5 @@
-const userNames = ["deba", "allende", "adrian", "greta", "andrea", "haizea", "leire", "maialen", "klara", "ainhoa", "dom", "karmen", "itxaso", "nicolas", "mikel",
+const userNames = ["deba", "allende", "adrian", "greta", "andrea", "haizea", "leire", "maialen", "klara", "ainhoa",
+                     "dom", "karmen", "itxaso", "nicolas", "mikel",
                     "aitor", "itziar", "jone", "amaia", "colette", "bego"].sort();
 
 const colors = {
@@ -64,7 +65,7 @@ function celebrateUser() {
 
         document.querySelector("#div-intro").innerHTML = ``;
     
-        document.querySelector("body").innerHTML += 
+        document.querySelector("footer").innerHTML += 
 
             `
             <div id="appearing-gifs">
@@ -92,8 +93,8 @@ function showPresents() {
 
     introDiv.innerHTML =
     `
-    <p>Quieres recibir tus regalos?</p>
-    <button id="yes-present">Si</button>
+    <p>¿Quieres recibir tus regalos?</p>
+    <button id="yes-present">Sí</button>
     <button id="no-present">No</button>
     `
 
@@ -109,15 +110,15 @@ function receiveRandomInsult() {
 
     introDiv.innerHTML =
     `
-    <p>Quieres recibir un insulto en ingles?</p>
-    <button id="yes-insult">Si</button>
+    <p>¿Quieres recibir un insulto en inglés?</p>
+    <button id="yes-insult">Sí</button>
     <button id="no-insult">No</button>
     <button id="next-present">Siguiente regalo</button>
     `
     document.querySelector("#no-insult").onclick = (function () {
         document.querySelector("#show-content").style.display = "none";
         setTimeout( ( function () {
-            window.alert("Eres una persona horrible :(");
+            window.alert("No seas tan desagradable :(");
         }), 100);
     })
     document.querySelector("#next-present").onclick = whatRMCharacterAreYou;
@@ -138,7 +139,7 @@ function receiveRandomInsult() {
             `
             <cite>${data.message}</cite>
             <p>${data.subtitle}</p>
-            <small style="display:block">Dale otra vez a Sí, si quieres.</small>
+            <small style="display:block">Si quieres ver más, dale a Sí.</small>
             `
 
             document.querySelector("#show-content").style.display = "block";
@@ -154,8 +155,8 @@ function whatRMCharacterAreYou() {
 
     introDiv.innerHTML =
         `
-        <p>Quieres saber que personaje de Rick and Morty serias?</p>
-        <button id="yes-rm">Si</button>
+        <p>¿Quieres saber que personaje de Rick & Morty serías?</p>
+        <button id="yes-rm">Sí</button>
         <button id="no-rm">No</button>
         <button id="next-present">Siguiente regalo</button>
         `
@@ -163,7 +164,7 @@ function whatRMCharacterAreYou() {
         document.querySelector("#show-content").style.display = "none";
 
         setTimeout( ( function () {
-            window.alert("Eres una persona horrible :(");
+            window.alert("No entiendo por qué haces así :(");
         }), 100);
     })
 
@@ -183,7 +184,7 @@ function whatRMCharacterAreYou() {
                 `
                 <h2>${data.name}</h2>
                 <img src=${data.image} alt="Picture of ${data.name}" style="width:90%; border-radius:5px">
-                <small style="display:block">Dale otra vez a Si, si quieres</small>
+                <small style="display:block">Si quieres ver más, dale a Sí.</small>
                 `
 
                 document.querySelector("#show-content").style.display = "block";
@@ -201,24 +202,24 @@ function showNASAPictureDay() {
 
     introDiv.innerHTML =
         `
-        <p>Quieres saber cual fue la foto del dia de NASA el dia que naciste?</p>
-        <button id="yes-nasa">Si</button>
+        <p>¿Quieres saber qué foto publicó la NASA el día que naciste?</p>
+        <button id="yes-nasa">Sí</button>
         <button id="no-nasa">No</button>
-        <button id="next-present">Siguiente regalo?</button>
+        <button id="next-present">¿Siguiente regalo?</button>
         `
 
     document.querySelector("#no-nasa").onclick = (function () {
         document.querySelector("#show-content").style.display = "none";
 
         setTimeout( ( function () {
-            window.alert("Eres una persona horrible :(");
+            window.alert("No puedo más :(");
         }), 100);
     })
 
     document.querySelector("#yes-nasa").onclick = ( function () {
         document.querySelector("#show-content").innerHTML =
         `
-        <p>Selecciona tu fecha de nacimiento</p>
+        <p>Selecciona tu fecha de nacimiento:</p>
         <input type="date" id="chosen-date" value="1995-07-01" min="1990-01-01" max="2002-12-12"></input>
         
         <div id="pic-of-day"></div>
@@ -254,7 +255,7 @@ function showNASAPictureDay() {
                 document.querySelector("#pic-of-day").innerHTML =
                 `
                 <br>
-                <h2>Eres tan viej@ que la NASA ni tiene fotos para el dia de tu nacimiento</h2>
+                <h2>¡Eres tan viej@ que el día que naciste la NASA no había empezado a publicar fotos!</h2>
                 <img src="./img/hide_the_pain.png" alt="Close up of old men" style="max-width: 100%; border-radius: 5px">
                 `
             }
@@ -266,7 +267,7 @@ function showNASAPictureDay() {
 function endOfPresents() {
     document.querySelector("#show-content").innerHTML =
         `
-        <p>Ya vale! Aqui se acabaron tus regalos. Ahora vuelve a trabajar!</p>
+        <p>¡Se acabó! Ya no hay más regalos. Ahora vuelve a trabajar.</p>
         `
 }
     
@@ -291,6 +292,7 @@ function changeColorTheme() {
     const selectColorForm = document.querySelector("#select-color");
 
     selectColorForm.onchange = function () {
+            console.log("ciao");
             for ( let element of darkAccentElems ) {
                 element.style.backgroundColor = colors[selectColorForm.value.toLowerCase()].darkAccent;
                 console.log(colors[selectColorForm.value.toLowerCase()].darkAccent)
