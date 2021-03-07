@@ -248,6 +248,7 @@ function showNASAPictureDay() {
                         <p>${data.date.slice(-2)}/${data.date.slice(-5,-3)}/${data.date.slice(0,4)}</p>
                         <h2>${data.title}</h2>
                         <img src="${data.url}" alt="Picture of ${data.title}" style="width: 100%; border-radius:5px">
+                        <p>${data.explanation}</p>
                         `
             })
     
