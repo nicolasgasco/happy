@@ -207,6 +207,8 @@ function showNASAPictureDay() {
         <button id="no-nasa">No</button>
         <button id="next-present">¿Siguiente regalo?</button>
         `
+    
+    document.querySelector("#next-present").onclick = endOfPresents;
 
     document.querySelector("#no-nasa").onclick = (function () {
         document.querySelector("#show-content").style.display = "none";
@@ -262,13 +264,13 @@ function showNASAPictureDay() {
             }
         })
 
-        document.querySelector("#next-present").onclick = endOfPresents;
+
     })
 
 function endOfPresents() {
+    document.querySelector("#show-content").style.display = "block";
     document.querySelector("#show-content").innerHTML =
-        `
-        <p>¡Se acabó! Ya no hay más regalos. Ahora vuelve a trabajar.</p>
+        `<p>¡Se acabó! Ya no hay más regalos. Ahora vuelve a trabajar.</p>
         `
 }
     
